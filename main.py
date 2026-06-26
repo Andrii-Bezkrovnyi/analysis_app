@@ -241,9 +241,7 @@ class AirRaidAnalyzer:
 
     def create_pdf_report(self):
         # PDF Report Compilation via fpdf2
-        print(
-            ">>> Формування та збереження PDF-звіту (із захистом від розривів блоків)..."
-        )
+        print(">>> Формування та збереження PDF-звіту...")
 
         pdf = FPDF()
         # Enable automatic page breaks with a bottom margin of 15mm
