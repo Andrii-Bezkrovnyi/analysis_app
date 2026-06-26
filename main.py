@@ -137,6 +137,7 @@ class AirRaidAnalyzer:
         plt.tight_layout()
 
         self.images_paths["eda"] = self._save_plot_file(fig, "eda")
+        # plt.show()
         plt.close(fig)
 
     def perform_decomposition(self):
@@ -153,6 +154,7 @@ class AirRaidAnalyzer:
         plt.tight_layout()
 
         self.images_paths["decomp"] = self._save_plot_file(fig, "decomp")
+        # plt.show()
         plt.close(fig)
 
     def test_stationarity(self):
@@ -163,7 +165,7 @@ class AirRaidAnalyzer:
         self.metrics["adf_p_value"] = round(p_value, 4)
         self.metrics["is_stationary"] = p_value < 0.05
         print(
-            f"      p-value: {p_value:.4f} -> "
+            f">>> p-value: {p_value:.4f} -> "
             f"{'Стаціонарний' if self.metrics['is_stationary'] else 'Нестаціонарний'}"
         )
 
@@ -189,6 +191,7 @@ class AirRaidAnalyzer:
         plt.tight_layout()
 
         self.images_paths["risk"] = self._save_plot_file(fig, "risk")
+        # plt.show()
         plt.close(fig)
 
     def generate_ai_analytics(self):
@@ -234,7 +237,7 @@ class AirRaidAnalyzer:
                 )
 
             self.ai_analytics_parts = parts[:3]
-            print("      Аналітика успішно згенерована та розбита за графіками!")
+            print(">>> Аналітика успішно згенерована та розбита за графіками!")
         except Exception as e:
             print(f"      Помилка генерації ІІ: {e}")
             self.ai_analytics_parts = ["Помилка API"] * 3
@@ -325,7 +328,7 @@ class AirRaidAnalyzer:
         output_filename = "AI_Time_Series_Report.pdf"
         pdf.output(output_filename)
         print(
-            f"✅ Звіт успішно збережено в директорії програми: "
+            f"Звіт успішно збережено в директорії програми: "
             f"{os.path.abspath(output_filename)}"
         )
 
